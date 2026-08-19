@@ -53,5 +53,62 @@
             {% endfor %}
         </div>
     </section>
+    <!-- ===================== CALIDAD ===================== -->
+    <section class="calidad" id="calidad">
+        <h2>Calidad que se nota</h2>
+        <p>
+            En cada prenda cuidamos la comodidad, los acabados, el diseño y la
+            durabilidad. Nuestro objetivo es que sientas la diferencia desde
+            el primer uso.
+        </p>
+
+        <div class="calidad__galeria">
+            <!-- Coloca tus fotografías reales en static/images/gallery/ -->
+            <div class="calidad__item">
+                <img src="{{ url_for('static', filename='images/gallery/tela.jpg') }}" alt="Detalle de la tela">
+                <p>Tela</p>
+            </div>
+            <div class="calidad__item">
+                <img src="{{ url_for('static', filename='images/gallery/costuras.jpg') }}" alt="Detalle de las costuras">
+                <p>Costuras</p>
+            </div>
+            <div class="calidad__item">
+                <img src="{{ url_for('static', filename='images/gallery/cuello.jpg') }}" alt="Detalle del cuello">
+                <p>Cuello</p>
+            </div>
+            <div class="calidad__item">
+                <img src="{{ url_for('static', filename='images/gallery/estampado.jpg') }}" alt="Detalle del estampado">
+                <p>Estampado</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ENCUENTRA TU ESTILO ===================== -->
+    <section class="estilos" id="estilos">
+        <h2>Encuentra tu estilo</h2>
+
+        <div class="estilos__grid">
+            <div class="estilo-card">
+                <h3>Casual</h3>
+                <p>Piezas cómodas y versátiles para el día a día.</p>
+            </div>
+            <div class="estilo-card">
+                <h3>Urbano</h3>
+                <p>Actitud y estilo con inspiración de calle.</p>
+            </div>
+            <div class="estilo-card">
+                <h3>Minimalista</h3>
+                <p>Diseños limpios, simples y atemporales.</p>
+            </div>
+            <div class="estilo-card">
+                <h3>Oversize</h3>
+                <p>Cortes amplios para un look relajado y moderno.</p>
+            </div>
+            <div class="estilo-card">
+                <h3>Clásico</h3>
+                <p>Elegancia sencilla que nunca pasa de moda.</p>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}
