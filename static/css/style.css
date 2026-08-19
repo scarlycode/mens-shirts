@@ -791,3 +791,30 @@ section {
     max-width: var(--max-width);
     margin: 0 auto;
     }
+    /* -----------------------------
+   21. FAQ — estado activo (JS)
+   ----------------------------- */
+.faq__pregunta.is-active {
+    color: var(--color-accent);
+}
+
+.faq__pregunta {
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.faq__pregunta::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 0.3rem;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--color-gray);
+    transition: transform var(--transition);
+}
+
+.faq__pregunta.is-active::after {
+    content: "−";
+    color: var(--color-accent);
+}
