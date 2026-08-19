@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block content %}
 
     <!-- ===================== HERO ===================== -->
@@ -8,18 +7,50 @@
             <!-- Coloca tu imagen real en static/images/hero/hero.jpg -->
             <img src="{{ url_for('static', filename='images/hero/hero.jpg') }}" alt="Men's Shirts - Moda masculina">
         </div>
-
         <div class="hero__content">
             <h1>{{ brand_name }}</h1>
             <p class="hero__slogan">{{ slogan }}</p>
             <p class="hero__text">
                 Playeras y accesorios para hombre pensados para acompañar tu estilo todos los días.
             </p>
-
             <div class="hero__buttons">
                 <a href="#coleccion" class="btn btn--primary">VER COLECCIÓN</a>
                 <a href="#reservar" class="btn btn--secondary">RESERVAR PEDIDO</a>
             </div>
+        </div>
+    </section>
+
+    <!-- ===================== NUESTRA ESENCIA ===================== -->
+    <section class="esencia" id="esencia">
+        <h2>Nuestra esencia</h2>
+        <p>
+            En {{ brand_name }} buscamos ofrecerte estilo, comodidad y calidad
+            en cada prenda. Somos un emprendimiento joven, comprometido con
+            diseños modernos, atención personalizada y precios accesibles.
+        </p>
+    </section>
+
+    <!-- ===================== NUESTRA COLECCIÓN ===================== -->
+    <section class="coleccion" id="coleccion">
+        <h2>Nuestra colección</h2>
+        <div class="coleccion__grid">
+            {% for product in products %}
+                <article class="producto-card">
+                    <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+                    <h3>{{ product.name }}</h3>
+                    <p>{{ product.description }}</p>
+                    <p class="producto-card__precio">
+                        {% if product.price > 0 %}
+                            ${{ product.price }} MXN
+                        {% else %}
+                            Precio próximamente
+                        {% endif %}
+                    </p>
+                    <p><strong>Tallas:</strong> {{ product.sizes | join(", ") }}</p>
+                    <p><strong>Colores:</strong> {{ product.colors | join(", ") }}</p>
+                    <a href="#reservar" class="btn btn--primary">RESERVAR</a>
+                </article>
+            {% endfor %}
         </div>
     </section>
 
