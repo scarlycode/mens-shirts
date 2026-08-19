@@ -1,20 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ site_title }}</title>
-</head>
-<body>
-    <h1>{{ brand_name }}</h1>
-    <p>{{ slogan }}</p>
+{% extends "base.html" %}
 
-    <h2>Productos (prueba de datos)</h2>
-    <ul>
-        {% for product in products %}
-            <li>{{ product.name }} - {{ product.description }}</li>
-        {% endfor %}
-    </ul>
+{% block content %}
 
-    <p>WhatsApp configurado: {{ whatsapp_number }}</p>
-</body>
-</html>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio">
+        <div class="hero__image">
+            <!-- Coloca tu imagen real en static/images/hero/hero.jpg -->
+            <img src="{{ url_for('static', filename='images/hero/hero.jpg') }}" alt="Men's Shirts - Moda masculina">
+        </div>
+
+        <div class="hero__content">
+            <h1>{{ brand_name }}</h1>
+            <p class="hero__slogan">{{ slogan }}</p>
+            <p class="hero__text">
+                Playeras y accesorios para hombre pensados para acompañar tu estilo todos los días.
+            </p>
+
+            <div class="hero__buttons">
+                <a href="#coleccion" class="btn btn--primary">VER COLECCIÓN</a>
+                <a href="#reservar" class="btn btn--secondary">RESERVAR PEDIDO</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

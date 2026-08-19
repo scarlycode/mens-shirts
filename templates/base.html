@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO básico -->
+    <title>{% block title %}{{ site_title }}{% endblock %}</title>
+    <meta name="description" content="{{ site_description }}">
+
+    <!-- Open Graph (vista previa al compartir en redes/WhatsApp) -->
+    <meta property="og:title" content="{{ site_title }}">
+    <meta property="og:description" content="{{ site_description }}">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon (coloca tu ícono real en static/images/) -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- ===================== NAVEGACIÓN ===================== -->
+    <header class="navbar">
+        <div class="navbar__brand">
+            <a href="#inicio">{{ brand_name }}</a>
+        </div>
+
+        <nav class="navbar__menu" id="navMenu">
+            <a href="#inicio">Inicio</a>
+            <a href="#coleccion">Colección</a>
+            <a href="#calidad">Calidad</a>
+            <a href="#estilos">Estilos</a>
+            <a href="#reservar">Reservar</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+        <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- ===================== CONTENIDO DE CADA PÁGINA ===================== -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- El footer lo agregamos en un paso posterior -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
