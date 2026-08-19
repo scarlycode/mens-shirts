@@ -703,3 +703,91 @@ section {
     margin-top: var(--space-xs);
     max-width: 65ch;
 }
+/* -----------------------------
+   19. CONTACTO
+   ----------------------------- */
+.contacto p {
+    margin-bottom: var(--space-xs);
+}
+
+.contacto p strong {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-graphite);
+    margin-right: 0.4rem;
+}
+
+.contacto ul {
+    margin-top: var(--space-xs);
+}
+
+.contacto ul li {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.contacto ul li a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* -----------------------------
+   20. FOOTER
+   ----------------------------- */
+.footer {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+    text-align: center;
+    padding: var(--space-lg) var(--space-md) var(--space-md);
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.footer > p:first-of-type {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-fog);
+    margin-bottom: var(--space-md);
+}
+
+.footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.footer__links a {
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-bone);
+    transition: color var(--transition);
+}
+
+.footer__links a:hover {
+    color: var(--color-accent);
+}
+
+.footer__whatsapp {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-fog);
+    margin-bottom: var(--space-md);
+}
+
+.footer__copy {
+    font-size: 0.78rem;
+    color: var(--color-gray);
+    border-top: 1px solid #2a2a24;
+    padding-top: var(--space-sm);
+    max-width: var(--max-width);
+    margin: 0 auto;
+    }
