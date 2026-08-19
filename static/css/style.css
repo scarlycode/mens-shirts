@@ -1,0 +1,337 @@
+/* =============================================
+   MEN'S SHIRTS — style.css
+   Etapa 4 (parte 1): variables, reset, tipografía, navbar, botones
+   ============================================= */
+
+/* -----------------------------
+   1. VARIABLES CSS (design tokens)
+   ----------------------------- */
+:root {
+    /* Colores */
+    --color-ink: #111111;         /* negro */
+    --color-bone: #F1EFEA;        /* hueso — fondo general */
+    --color-white: #FFFFFF;
+    --color-graphite: #3D3D3B;    /* gris oscuro — texto secundario */
+    --color-gray: #8A8A85;        /* gris medio — texto terciario */
+    --color-fog: #DCDAD3;         /* gris claro — bordes/divisores */
+    --color-accent: #8C6E4A;      /* bronce — acento discreto */
+
+    /* Tipografía */
+    --font-display: 'Oswald', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Espaciados (escala consistente) */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+
+    /* Otros */
+    --max-width: 1200px;
+    --transition: 0.25s ease;
+}
+
+/* -----------------------------
+   2. RESET BÁSICO
+   ----------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bone);
+    color: var(--color-ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* -----------------------------
+   3. TIPOGRAFÍA BASE
+   ----------------------------- */
+h1, h2, h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    margin-bottom: var(--space-md);
+}
+
+h3 {
+    font-size: 1.25rem;
+    letter-spacing: 0.01em;
+}
+
+p {
+    color: var(--color-graphite);
+}
+
+/* Elementos con datos de producto (precio, tallas, colores) usan la mono */
+.producto-card__precio,
+.form-reserva label {
+    font-family: var(--font-mono);
+}
+
+/* -----------------------------
+   4. CONTENEDOR GENERAL
+   ----------------------------- */
+section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+}
+
+/* -----------------------------
+   5. BOTONES
+   ----------------------------- */
+.btn {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    transition: all var(--transition);
+}
+
+.btn--primary {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+    border: 1px solid var(--color-ink);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn--secondary {
+    background-color: transparent;
+    color: var(--color-ink);
+    border: 1px solid var(--color-ink);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-ink);
+    color: var(--color-bone);
+}
+
+/* -----------------------------
+   6. NAVBAR
+   ----------------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-ink);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar__brand a {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--color-bone);
+    text-transform: uppercase;
+}
+
+.navbar__menu {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.navbar__menu a {
+    color: var(--color-bone);
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color var(--transition);
+}
+
+.navbar__menu a:hover {
+    color: var(--color-accent);
+}
+
+.navbar__menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-accent);
+    transition: width var(--transition);
+}
+
+.navbar__menu a:hover::after {
+    width: 100%;
+}
+
+/* Botón hamburguesa: oculto en escritorio, visible en móvil (ver media query) */
+.navbar__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.navbar__toggle span {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-bone);
+}
+
+/* -----------------------------
+   7. RESPONSIVE — NAVBAR MÓVIL
+   ----------------------------- */
+@media (max-width: 768px) {
+    .navbar__menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-ink);
+        flex-direction: column;
+        gap: 0;
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .navbar__menu.is-open {
+        display: flex;
+    }
+
+    .navbar__menu a {
+        padding: var(--space-xs) 0;
+        border-bottom: 1px solid rgba(241, 239, 234, 0.1);
+    }
+
+    .navbar__toggle {
+        display: flex;
+    }
+}
+/* -----------------------------
+   8. HERO
+   ----------------------------- */
+.hero {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-lg);
+    align-items: start;
+}
+
+/* Orden visual: en escritorio, texto a la izquierda, imagen a la derecha */
+.hero__content {
+    order: 1;
+}
+
+.hero__image {
+    order: 2;
+    aspect-ratio: 3 / 4;
+    max-height: 520px;
+    background-color: var(--color-fog);
+    border: 1px solid var(--color-graphite);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Mientras no haya imagen real, este bloque se ve como un placeholder
+       intencional en lugar de un ícono roto */
+    min-height: 100%;
+    color: transparent;
+}
+
+.hero__slogan {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-top: var(--space-sm);
+}
+
+.hero__text {
+    max-width: 40ch;
+    margin-top: var(--space-sm);
+    margin-bottom: var(--space-md);
+    color: var(--color-graphite);
+}
+
+.hero__buttons {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+/* -----------------------------
+   9. RESPONSIVE — HERO
+   ----------------------------- */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: var(--space-lg);
+    }
+
+    .hero__image {
+        order: 1;
+        aspect-ratio: 16 / 10;
+    }
+
+    .hero__content {
+        order: 2;
+    }
+}
