@@ -528,3 +528,86 @@ section {
 .estilo-card p {
     font-size: 0.9rem;
 }
+/* -----------------------------
+   14. TALLAS Y COLORES
+   ----------------------------- */
+.tallas {
+    text-align: center;
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+}
+
+.tallas p {
+    font-family: var(--font-mono);
+}
+
+.tallas p:first-of-type {
+    font-size: 1.1rem;
+    color: var(--color-ink);
+    margin-bottom: var(--space-xs);
+}
+
+.tallas em {
+    font-size: 0.85rem;
+    color: var(--color-gray);
+    font-style: normal;
+}
+
+/* -----------------------------
+   15. FORMULARIO DE RESERVA
+   ----------------------------- */
+.reserva {
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-fog);
+    border-bottom: 1px solid var(--color-fog);
+}
+
+.reserva > p {
+    max-width: 55ch;
+    margin-bottom: var(--space-md);
+}
+
+.form-reserva {
+    max-width: 560px;
+    display: grid;
+    gap: var(--space-sm);
+}
+
+.form-reserva label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-graphite);
+    margin-bottom: 0.35rem;
+}
+
+.form-reserva input,
+.form-reserva select,
+.form-reserva textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.75rem;
+    background-color: var(--color-bone);
+    border: 1px solid var(--color-fog);
+    border-radius: 2px;
+    color: var(--color-ink);
+    transition: border-color var(--transition);
+}
+
+.form-reserva input:focus,
+.form-reserva select:focus,
+.form-reserva textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.form-reserva textarea {
+    resize: vertical;
+}
+
+.form-reserva button {
+    justify-self: start;
+    margin-top: var(--space-xs);
+}
