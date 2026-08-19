@@ -216,5 +216,42 @@
             <p class="faq__respuesta">Claro, escríbenos por WhatsApp y con gusto resolvemos tus dudas.</p>
         </div>
     </section>
+        <!-- ===================== CONTACTO ===================== -->
+    <section class="contacto" id="contacto">
+        <h2>Hablemos</h2>
+
+        <p><strong>WhatsApp:</strong> {{ whatsapp_number }}</p>
+
+        <p><strong>Horario:</strong> {{ schedule }}</p>
+        <p><strong>Zona de entrega:</strong> {{ delivery_zone }}</p>
+
+        <p><strong>Redes sociales:</strong></p>
+        <ul>
+            <li>
+                Instagram:
+                {% if social_links.instagram %}
+                    <a href="{{ social_links.instagram }}" target="_blank">{{ social_links.instagram }}</a>
+                {% else %}
+                    Próximamente
+                {% endif %}
+            </li>
+            <li>
+                Facebook:
+                {% if social_links.facebook %}
+                    <a href="{{ social_links.facebook }}" target="_blank">{{ social_links.facebook }}</a>
+                {% else %}
+                    Próximamente
+                {% endif %}
+            </li>
+            <li>
+                TikTok:
+                {% if social_links.tiktok %}
+                    <a href="{{ social_links.tiktok }}" target="_blank">{{ social_links.tiktok }}</a>
+                {% else %}
+                    Próximamente
+                {% endif %}
+            </li>
+        </ul>
+    </section>
 
 {% endblock %}
