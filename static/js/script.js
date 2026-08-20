@@ -54,5 +54,47 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+    /* -----------------------------
+       3. SCROLL SUAVE (refuerzo con JS)
+       ----------------------------- */
+    const navLinksScroll = document.querySelectorAll('a[href^="#"]');
 
+    navLinksScroll.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+            const destino = document.querySelector(this.getAttribute("href"));
+            if (destino) {
+                e.preventDefault();
+                destino.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
+    });
+
+    /* -----------------------------
+       4. VALIDACIÓN BÁSICA DEL FORMULARIO
+       ----------------------------- */
+    const formReserva = document.getElementById("formReserva");
+
+    if (formReserva) {
+        formReserva.addEventListener("submit", function (e) {
+            e.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+
+            const nombre = document.getElementById("nombre").value.trim();
+            const whatsappCliente = document.getElementById("whatsapp").value.trim();
+            const producto = document.getElementById("producto").value;
+            const talla = document.getElementById("talla").value.trim();
+            const color = document.getElementById("color").value.trim();
+            const cantidad = document.getElementById("cantidad").value;
+
+            // Validación simple: revisa que los campos obligatorios no estén vacíos
+            if (!nombre || !whatsappCliente || !producto || !talla || !color || !cantidad) {
+                alert("Por favor completa todos los campos obligatorios antes de reservar.");
+                return;
+            }
+
+            // Aquí, en el siguiente paso, vamos a generar el mensaje de WhatsApp
+            console.log("Formulario válido. Datos listos para enviar a WhatsApp:", {
+                nombre, whatsappCliente, producto, talla, color, cantidad
+            });
+        });
+    }
 });
